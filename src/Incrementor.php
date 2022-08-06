@@ -12,6 +12,7 @@ class Incrementor
     private array $sequence;
     private array $map;
     private string $lastCharacter;
+    private string $firstCharacter;
 
     public function __construct()
     {
@@ -40,7 +41,7 @@ class Incrementor
         }
         $outputString = '';
         foreach ($inputArray as $index => $value) {
-            if ($hasCycledLast && ($inputSize >= 3) && ($index === ($inputSize - 2))) {
+            if ($hasCycledLast && ($inputSize >= 2) && ($index === ($inputSize - 2))) {
                 $outputString .= $this->getNextPosition($value);
             } elseif ($index < ($inputSize - 1)) {
                 $outputString .= $value;
@@ -50,13 +51,14 @@ class Incrementor
         }
         if ($hasCycledLast
             &&
-            (
-                ($secondToLastCharacter === null)
-                ||
-                (
-                $secondToLastCharacter === $this->lastCharacter
-                )
-            )
+            $inputSize === 1
+//            (
+//                ($secondToLastCharacter === null)
+//                ||
+//                (
+//                $secondToLastCharacter === $this->lastCharacter
+//                )
+//            )
         ) {
             return $outputString . $nextLastCharacter;
         }

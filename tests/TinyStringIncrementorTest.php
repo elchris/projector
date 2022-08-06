@@ -13,7 +13,7 @@ class TinyStringIncrementorTest extends TestCase
 
         $array = str_split($characters);
 
-        self::assertCount(62, $array);
+        self::assertCount(strlen(Incrementor::CHARACTERS), $array);
 
         $expected = [
             'a' => 'b',
@@ -27,7 +27,13 @@ class TinyStringIncrementorTest extends TestCase
             'ac' => 'ad',
             'az' => 'aA',
             'aZ' => 'a0',
-            'a9' => 'aaa',
+            'a9' => 'ba',
+            'ba' => 'bb',
+            'bb' => 'bc',
+            'bc' => 'bd',
+            'bz' => 'bA',
+            'bZ' => 'b0',
+            '99' => 'aaa',
             'aaa' => 'aab',
             'aab' => 'aac',
             'aac' => 'aad',
@@ -88,7 +94,7 @@ class TinyStringIncrementorTest extends TestCase
 
         $current = 'a';
         $counter = 0;
-        while ((strlen($current) < 4) && ($counter < 10000)) {
+        while ((strlen($current) < 5) && ($counter < 10000)) {
             $counter++;
             $current = $incrementor->getNextIdentifier($current);
             print " - ".$current;
