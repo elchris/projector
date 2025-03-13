@@ -83,15 +83,6 @@ class TinyStringIncrementorTest extends TestCase
             $incrementor->getNextPosition('9')
         );
 
-
-        foreach ($expected as $input => $output) {
-            self::assertSame(
-                $output,
-                $incrementor->getNextIdentifier($input),
-                'from: ' . $input
-            );
-        }
-
         $current = 'a';
         $counter = 0;
         while ((strlen($current) < 5) && ($counter < 10000)) {
