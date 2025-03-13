@@ -1,0 +1,17 @@
+{
+    "baseline_r_squared": 0.5995944528859957,
+    "achieved_r_squared": 0.9996440956045441,
+    "meets_threshold": true,
+    "outliers_removed": 1,
+    "outliers": [
+        {
+            "index": 10,
+            "point": [
+                5,
+                25
+            ],
+            "r_squared": 0.9996440956045441,
+            "improvement": 0.4000496427185485
+        }
+    ]
+}
